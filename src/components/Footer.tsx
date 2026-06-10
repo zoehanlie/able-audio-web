@@ -1,4 +1,6 @@
 import { useTranslations, useLocale } from 'next-intl';
+import { Mail } from 'lucide-react';
+import { SiInstagram, SiWhatsapp } from 'react-icons/si';
 
 export default function Footer() {
   const t = useTranslations('footer');
@@ -31,7 +33,11 @@ export default function Footer() {
         </div>
         <div className="foot-bottom">
           <span>{t('copy')}</span>
-          <div className="socials"><a href="https://www.instagram.com/ableaudiotech/">◎</a><a href="#">𝕏</a><a href="#">f</a><a href="#">in</a></div>
+          <div className="socials">
+            <a href="mailto:sales@ableaudiotech.com" aria-label="Email"><Mail size={16} strokeWidth={1.9} aria-hidden /></a>
+            <a href="https://www.instagram.com/ableaudiotech/" aria-label="Instagram"><SiInstagram size={16} aria-hidden /></a>
+            <a href="https://wa.me/85263358817" aria-label="WhatsApp"><SiWhatsapp size={16} aria-hidden /></a>
+          </div>
         </div>
       </div>
     </footer>

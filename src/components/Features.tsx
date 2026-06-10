@@ -1,8 +1,34 @@
 import { useTranslations } from 'next-intl';
+import { Check, FlaskConical, SlidersHorizontal, SlidersVertical, Sparkles, Waves, Zap } from 'lucide-react';
 import Reveal from './Reveal';
 
 export default function Features() {
   const t = useTranslations('features');
+  const features = [
+    {
+      Icon: Zap,
+      h: t('f1h'),
+      p: t('f1p'),
+      ticks: [t('f1t1'), t('f1t2')],
+    },
+    {
+      Icon: SlidersHorizontal,
+      h: t('f2h'),
+      p: t('f2p'),
+      ticks: [t('f2t1'), t('f2t2')],
+      dark: true,
+    },
+    {
+      Icon: FlaskConical,
+      h: t('f3h'),
+      p: t('f3p'),
+      ticks: [t('f3t1'), t('f3t2')],
+    },
+    { Icon: Waves, h: t('f4h'), p: t('f4p') },
+    { Icon: SlidersVertical, h: t('f5h'), p: t('f5p') },
+    { Icon: Sparkles, h: t('f6h'), p: t('f6p') },
+  ];
+
   return (
     <section className="section" id="discover">
       <div className="wrap">
@@ -14,21 +40,18 @@ export default function Features() {
           <p>{t('p')}</p>
         </Reveal>
         <div className="feat-grid">
-          <Reveal><div className="feat">
-            <div className="ic">⚡</div><h3>{t('f1h')}</h3><p>{t('f1p')}</p>
-            <div className="tickrow"><span>{t('f1t1')}</span><span>{t('f1t2')}</span></div>
-          </div></Reveal>
-          <Reveal><div className="feat dark">
-            <div className="ic">🎛️</div><h3>{t('f2h')}</h3><p>{t('f2p')}</p>
-            <div className="tickrow"><span>{t('f2t1')}</span><span>{t('f2t2')}</span></div>
-          </div></Reveal>
-          <Reveal><div className="feat">
-            <div className="ic">🔬</div><h3>{t('f3h')}</h3><p>{t('f3p')}</p>
-            <div className="tickrow"><span>{t('f3t1')}</span><span>{t('f3t2')}</span></div>
-          </div></Reveal>
-          <Reveal><div className="feat"><div className="ic">🌫️</div><h3>{t('f4h')}</h3><p>{t('f4p')}</p></div></Reveal>
-          <Reveal><div className="feat"><div className="ic">🎚️</div><h3>{t('f5h')}</h3><p>{t('f5p')}</p></div></Reveal>
-          <Reveal><div className="feat"><div className="ic">✦</div><h3>{t('f6h')}</h3><p>{t('f6p')}</p></div></Reveal>
+          {features.map(({ Icon, h, p, ticks, dark }) => (
+            <Reveal key={h}><div className={`feat${dark ? ' dark' : ''}`}>
+              <div className="ic"><Icon size={23} strokeWidth={1.8} aria-hidden /></div><h3>{h}</h3><p>{p}</p>
+              {ticks && (
+                <div className="tickrow">
+                  {ticks.map((tick) => (
+                    <span key={tick}><Check className="tick-icon" size={12} strokeWidth={3} aria-hidden />{tick}</span>
+                  ))}
+                </div>
+              )}
+            </div></Reveal>
+          ))}
         </div>
       </div>
     </section>

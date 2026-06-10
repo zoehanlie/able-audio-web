@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { Star } from 'lucide-react';
 import Reveal from './Reveal';
 
 export default function Reviews() {
@@ -21,7 +22,11 @@ export default function Reviews() {
         <div className="rev-grid">
           {items.map((r) => (
             <Reveal key={r.name}><div className="rev">
-              <div className="stars">★★★★★</div>
+              <div className="stars" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <Star key={i} size={16} strokeWidth={1.8} fill="currentColor" aria-hidden />
+                ))}
+              </div>
               <p>{r.p}</p>
               <div className="rev-by"><div className="av">{r.av}</div><div className="who"><b>{r.name}</b><span>{r.role}</span></div></div>
             </div></Reveal>

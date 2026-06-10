@@ -1,4 +1,5 @@
 import { useTranslations, useLocale } from 'next-intl';
+import { Check, Diamond, Ruler, Volume2, Zap, type LucideIcon } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import Reveal from './Reveal';
 import CountUp from './CountUp';
@@ -16,11 +17,13 @@ export default function AboutContent() {
   const titleHead = sp > 0 ? title.slice(0, sp + 1) : '';
   const titleTail = sp > 0 ? title.slice(sp + 1) : title;
 
-  const designCards = [
-    { ic: '⚡', h: t('d1h'), p: t('d1p') },
-    { ic: '🔊', h: t('d2h'), p: t('d2p') },
-    { ic: '📐', h: t('d3h'), p: t('d3p') },
+  const designCards: Array<{ Icon: LucideIcon; h: string; p: string }> = [
+    { Icon: Zap, h: t('d1h'), p: t('d1p') },
+    { Icon: Volume2, h: t('d2h'), p: t('d2p') },
+    { Icon: Ruler, h: t('d3h'), p: t('d3p') },
   ];
+  const diaphragmFeatures = [t('diaF1'), t('diaF2'), t('diaF3'), t('diaF4')];
+  const panelFeatures = [t('panelF1'), t('panelF2'), t('panelF3'), t('panelF4')];
 
   return (
     <main className="ap" id="top">
@@ -82,14 +85,14 @@ export default function AboutContent() {
             <ul className="ap-design-list">
               {designCards.map((c, i) => (
                 <li key={i}>
-                  <span className="ic">{c.ic}</span>
+                  <span className="ic"><c.Icon size={20} strokeWidth={1.8} aria-hidden /></span>
                   <div><b>{c.h}</b><span>{c.p}</span></div>
                 </li>
               ))}
             </ul>
           </Reveal>
           <Reveal className="ap-visual">
-            <span className="tagtop">◈ {t('designTag')}</span>
+            <span className="tagtop"><Diamond size={12} strokeWidth={2} aria-hidden />{t('designTag')}</span>
             <HybridViz />
             <span className="cap">{t('designCap')}</span>
           </Reveal>
@@ -106,14 +109,13 @@ export default function AboutContent() {
             <p>{t('diaP1')}</p>
             <p>{t('diaP2')}</p>
             <ul className="ap-feats">
-              <li><span className="chk">✓</span>{t('diaF1')}</li>
-              <li><span className="chk">✓</span>{t('diaF2')}</li>
-              <li><span className="chk">✓</span>{t('diaF3')}</li>
-              <li><span className="chk">✓</span>{t('diaF4')}</li>
+              {diaphragmFeatures.map((feature) => (
+                <li key={feature}><span className="chk"><Check size={13} strokeWidth={3} aria-hidden /></span>{feature}</li>
+              ))}
             </ul>
           </Reveal>
           <Reveal className="ap-visual">
-            <span className="tagtop">◈ {t('diaTag')}</span>
+            <span className="tagtop"><Diamond size={12} strokeWidth={2} aria-hidden />{t('diaTag')}</span>
             <DiaphragmViz />
             <span className="cap">{t('diaCap')}</span>
           </Reveal>
@@ -130,14 +132,13 @@ export default function AboutContent() {
             <p>{t('panelP1')}</p>
             <p>{t('panelP2')}</p>
             <ul className="ap-feats">
-              <li><span className="chk">✓</span>{t('panelF1')}</li>
-              <li><span className="chk">✓</span>{t('panelF2')}</li>
-              <li><span className="chk">✓</span>{t('panelF3')}</li>
-              <li><span className="chk">✓</span>{t('panelF4')}</li>
+              {panelFeatures.map((feature) => (
+                <li key={feature}><span className="chk"><Check size={13} strokeWidth={3} aria-hidden /></span>{feature}</li>
+              ))}
             </ul>
           </Reveal>
           <Reveal className="ap-visual">
-            <span className="tagtop">◈ {t('panelTag')}</span>
+            <span className="tagtop"><Diamond size={12} strokeWidth={2} aria-hidden />{t('panelTag')}</span>
             <ChannelsViz />
             <span className="cap">{t('panelCap')}</span>
           </Reveal>

@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
-import LanguageToggle from './LanguageToggle';
+import { Menu, X } from 'lucide-react';
+import LanguageMenu from './LanguageMenu';
 
 export default function Nav() {
   const t = useTranslations('nav');
@@ -38,7 +39,7 @@ export default function Nav() {
             <a href={`${home}#contact`}>{t('contact')}</a>
           </div>
           <div className="nav-cta">
-            <LanguageToggle />
+            <LanguageMenu />
             <a href={`${home}#contact`} className="btn btn-yellow">{t('cta')} →</a>
             <button
               className="menu-btn"
@@ -46,7 +47,7 @@ export default function Nav() {
               aria-expanded={open}
               onClick={() => setOpen(o => !o)}
             >
-              {open ? '✕' : '☰'}
+              {open ? <X size={24} strokeWidth={2} aria-hidden /> : <Menu size={24} strokeWidth={2} aria-hidden />}
             </button>
           </div>
         </div>
@@ -61,7 +62,7 @@ export default function Nav() {
       <aside className={`drawer${open ? ' open' : ''}`} aria-label="Mobile navigation">
         <div className="drawer-head">
           <Logo onClick={close} />
-          <button className="drawer-close" aria-label="Close menu" onClick={close}>✕</button>
+          <button className="drawer-close" aria-label="Close menu" onClick={close}><X size={18} strokeWidth={2} aria-hidden /></button>
         </div>
 
         <nav className="drawer-links">
@@ -73,7 +74,7 @@ export default function Nav() {
         </nav>
 
         <div className="drawer-foot">
-          <LanguageToggle />
+          <LanguageMenu />
           <a href={`${home}#contact`} className="btn btn-yellow drawer-cta" onClick={close}>{t('cta')} →</a>
         </div>
       </aside>

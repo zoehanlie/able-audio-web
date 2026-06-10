@@ -1,6 +1,8 @@
 'use client';
 import { useActionState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Mail } from 'lucide-react';
+import { SiInstagram, SiWhatsapp } from 'react-icons/si';
 import Reveal from './Reveal';
 import { submitContact, type ContactState } from '@/lib/actions';
 
@@ -18,9 +20,9 @@ export default function Contact() {
           <h2>{t('h')}</h2>
           <p className="c-sub">{t('sub')}</p>
           <div className="c-links">
-            <a href="mailto:sales@ableaudiotech.com"><span className="ic">✉</span>sales@ableaudiotech.com</a>
-            <a href="https://wa.me/85263358817"><span className="ic">💬</span>WhatsApp · +852 6335 8817</a>
-            <a href="https://www.instagram.com/ableaudiotech/"><span className="ic">◎</span>@ableaudiotech</a>
+            <a href="mailto:sales@ableaudiotech.com"><span className="ic"><Mail size={19} strokeWidth={1.9} aria-hidden /></span>sales@ableaudiotech.com</a>
+            <a href="https://wa.me/85263358817"><span className="ic"><SiWhatsapp size={19} aria-hidden /></span>WhatsApp · +852 6335 8817</a>
+            <a href="https://www.instagram.com/ableaudiotech/"><span className="ic"><SiInstagram size={19} aria-hidden /></span>@ableaudiotech</a>
           </div>
         </Reveal>
         <Reveal className="c-form-wrap">
