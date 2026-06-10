@@ -21,7 +21,7 @@ export default function Contact() {
           <p className="c-sub">{t('sub')}</p>
           <div className="c-links">
             <a href="mailto:sales@ableaudiotech.com"><span className="ic"><Mail size={19} strokeWidth={1.9} aria-hidden /></span>sales@ableaudiotech.com</a>
-            <a href="https://wa.me/85263358817"><span className="ic"><SiWhatsapp size={19} aria-hidden /></span>WhatsApp · +852 6335 8817</a>
+            <a href="https://wa.me/85263358817"><span className="ic"><SiWhatsapp size={19} aria-hidden /></span>WhatsApp</a>
             <a href="https://www.instagram.com/ableaudiotech/"><span className="ic"><SiInstagram size={19} aria-hidden /></span>@ableaudiotech</a>
           </div>
         </Reveal>
