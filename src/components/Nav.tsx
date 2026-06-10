@@ -40,7 +40,6 @@ export default function Nav() {
           </div>
           <div className="nav-cta">
             <LanguageMenu />
-            <a href={`${home}#contact`} className="btn btn-yellow">{t('cta')} →</a>
             <button
               className="menu-btn"
               aria-label={open ? 'Close menu' : 'Open menu'}
@@ -75,7 +74,6 @@ export default function Nav() {
 
         <div className="drawer-foot">
           <LanguageMenu />
-          <a href={`${home}#contact`} className="btn btn-yellow drawer-cta" onClick={close}>{t('cta')} →</a>
         </div>
       </aside>
     </>

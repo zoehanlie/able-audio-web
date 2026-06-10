@@ -1,6 +1,5 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { Check, Diamond, Ruler, Volume2, Zap, type LucideIcon } from 'lucide-react';
-import { Link } from '@/i18n/navigation';
 import Reveal from './Reveal';
 import CountUp from './CountUp';
 import DiaphragmViz from './DiaphragmViz';
@@ -34,7 +33,6 @@ export default function AboutContent() {
         </div>
         <div className="wrap">
           <Reveal>
-            <Link href="/" className="ap-back">← {t('home')}</Link>
             <span className="eyebrow"><span className="sq" />{t('eyebrow')}</span>
             <h1>{titleHead}<span className="hl">{titleTail}</span></h1>
             <p>{t('intro')}</p>
@@ -154,7 +152,6 @@ export default function AboutContent() {
             <p>{t('ctaP')}</p>
             <div className="ap-cta-btns">
               <a href={`/${locale}#contact`} className="btn btn-ink">{t('ctaBtn')} →</a>
-              <Link href="/" className="btn btn-line">← {t('home')}</Link>
             </div>
           </Reveal>
         </div>
