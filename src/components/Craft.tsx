@@ -16,7 +16,7 @@ export default function Craft() {
         </Reveal>
         <div className="craft-grid">
           <Reveal><div className="craft-card">
-            <Image src="/images/craft2.png" alt="James R. Peterson" fill sizes="(max-width:980px) 100vw, 600px" style={{ objectFit: 'cover' }} />
+            <Image src="/images/craft2.png" alt="David R. Peterson" fill sizes="(max-width:980px) 100vw, 600px" style={{ objectFit: 'cover' }} />
             <div className="cov" />
             <div className="cc">
               <div className="role">{t('role1')}</div>
@@ -24,7 +24,7 @@ export default function Craft() {
             </div>
           </div></Reveal>
           <Reveal><div className="craft-card">
-            <Image src="/images/craft1.jpg" alt="Mr. Tang" fill sizes="(max-width:980px) 100vw, 600px" style={{ objectFit: 'cover' }} />
+            <Image src="/images/craft1.jpg" alt="CK Tang" fill sizes="(max-width:980px) 100vw, 600px" style={{ objectFit: 'cover' }} />
             <div className="cov" />
             <div className="cc">
               <div className="role">{t('role2')}</div>

@@ -32,9 +32,11 @@ export default function Nav() {
         <div className="wrap nav-inner">
           <Logo />
           <div className="nav-links">
-            <a href={`${home}#discover`}>{t('discover')}</a>
+            <a href={`${home}#top`}>{t('home')}</a>
+            {/* <a href={`${home}#discover`}>{t('discover')}</a> Discover section hidden */}
             {/* <a href={`${home}#product`}>{t('product')}</a> Product section hidden */}
-            <a href={`${home}#craft`}>{t('craft')}</a>
+            {/* <a href={`${home}#craft`}>{t('craft')}</a> Craft section hidden */}
+            <a href={`${home}/explore`}>{t('explore')}</a>
             <a href={`${home}/about`}>{t('about')}</a>
             <a href={`${home}#contact`}>{t('contact')}</a>
           </div>
@@ -65,9 +67,11 @@ export default function Nav() {
         </div>
 
         <nav className="drawer-links">
-          <a href={`${home}#discover`} onClick={close}>{t('discover')}</a>
+          <a href={`${home}#top`} onClick={close}>{t('home')}</a>
+          {/* <a href={`${home}#discover`} onClick={close}>{t('discover')}</a> Discover section hidden */}
           {/* <a href={`${home}#product`} onClick={close}>{t('product')}</a> Product section hidden */}
-          <a href={`${home}#craft`} onClick={close}>{t('craft')}</a>
+          {/* <a href={`${home}#craft`} onClick={close}>{t('craft')}</a> Craft section hidden */}
+          <a href={`${home}/explore`} onClick={close}>{t('explore')}</a>
           <a href={`${home}/about`} onClick={close}>{t('about')}</a>
           <a href={`${home}#contact`} onClick={close}>{t('contact')}</a>
         </nav>

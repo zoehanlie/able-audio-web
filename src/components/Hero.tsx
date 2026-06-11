@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import EqRing from './EqRing';
 
 export default function Hero() {
   const t = useTranslations('hero');
+  const locale = useLocale();
   return (
     <header className="hero" id="top">
       <div className="wrap hero-grid">
@@ -12,7 +13,7 @@ export default function Hero() {
           <h1 className="hero-title">{t('titlePre')}<span className="hl">{t('titleHl')}</span></h1>
           <p className="hero-sub">{t('sub')}</p>
           <div className="hero-actions">
-            <a href="#discover" className="btn btn-yellow">{t('btn1')} →</a>
+            <a href={`/${locale}/explore`} className="btn btn-yellow">{t('btn1')} →</a>
             <a href="#contact" className="btn btn-ghost">▶ {t('btn2')}</a>
           </div>
           <div className="hero-stats">

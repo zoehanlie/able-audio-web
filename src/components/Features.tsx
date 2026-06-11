@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { Check, FlaskConical, SlidersHorizontal, SlidersVertical, Sparkles, Waves, Zap } from 'lucide-react';
+import { AudioWaveform, Check, Minimize2, SlidersHorizontal, Sparkles, Waves, Zap } from 'lucide-react';
 import Reveal from './Reveal';
 
 export default function Features() {
@@ -19,13 +19,13 @@ export default function Features() {
       dark: true,
     },
     {
-      Icon: FlaskConical,
+      Icon: Minimize2,
       h: t('f3h'),
       p: t('f3p'),
       ticks: [t('f3t1'), t('f3t2')],
     },
     { Icon: Waves, h: t('f4h'), p: t('f4p') },
-    { Icon: SlidersVertical, h: t('f5h'), p: t('f5p') },
+    { Icon: AudioWaveform, h: t('f5h'), p: t('f5p') },
     { Icon: Sparkles, h: t('f6h'), p: t('f6p') },
   ];
 
