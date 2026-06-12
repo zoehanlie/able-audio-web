@@ -7,6 +7,7 @@ import { Bricolage_Grotesque, Hanken_Grotesk, JetBrains_Mono, Noto_Sans_TC, Noto
 import { routing } from '@/i18n/routing';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import { defaultDescription, siteName, siteUrl } from '@/lib/seo';
 import '../globals.css';
 
 // Self-hosted Google fonts -> exposed as CSS variables used in globals.css
@@ -17,10 +18,27 @@ const notoTC = Noto_Sans_TC({ subsets: ['latin'], weight: ['400', '500', '700', 
 const notoJP = Noto_Sans_JP({ subsets: ['latin'], weight: ['400', '500', '700', '900'], variable: '--font-noto-jp', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Able Audio Tech | electrostatic speaker',
-  description: 'Next-generation electrostatic speakers with an in-house ultra-coated diaphragm and patented electrode design.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} | Electrostatic Speakers`,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  applicationName: siteName,
+  keywords: [
+    'Able Audio Tech',
+    'electrostatic speaker',
+    'electrostatic loudspeaker',
+    'high-end audio',
+    'hi-fi speakers',
+    'hybrid electrostatic speaker',
+  ],
   icons: {
     icon: '/images/favicon.jpeg',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

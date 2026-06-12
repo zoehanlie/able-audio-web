@@ -8,23 +8,26 @@ import { useEffect, useRef } from 'react';
 // sound rings emanate outward.
 const COAT = 3.2; // sideways offset of each metal-coating shadow line
 
+// Taut film: pinned at both ends, bowing as one in its fundamental mode with a
+// fast fine shimmer on top — tense, not floppy.
 function buildPath(t: number, amp: number, dx = 0) {
   let d = `M${(110 + dx).toFixed(1)},18`;
   for (let y = 18; y <= 282; y += 5) {
+    const n = Math.sin((Math.PI * (y - 18)) / 264);
     const x =
       110 +
       dx +
-      Math.sin(y * 0.05 + t) * amp * Math.sin(t * 0.5 + y * 0.012) +
-      Math.sin(y * 0.13 + t * 1.6) * amp * 0.4;
+      Math.sin(t * 2.4) * amp * n +
+      Math.sin(y * 0.11 + t * 5) * 1.4 * n;
     d += ` L${x.toFixed(1)},${y}`;
   }
   return d;
 }
 
 // A pleasing frozen frame used for SSR and reduced-motion (never a flat line).
-const STATIC_MAIN = buildPath(0.7, 13);
-const STATIC_COAT_A = buildPath(0.7, 13, -COAT);
-const STATIC_COAT_B = buildPath(0.7, 13, COAT);
+const STATIC_MAIN = buildPath(0.7, 7);
+const STATIC_COAT_A = buildPath(0.7, 7, -COAT);
+const STATIC_COAT_B = buildPath(0.7, 7, COAT);
 
 export default function DiaphragmViz() {
   const main = useRef<SVGPathElement>(null);
@@ -40,9 +43,9 @@ export default function DiaphragmViz() {
     const tick = () => {
       t += 0.05;
       // Same phase + amplitude for all three so the coatings ride with the membrane.
-      main.current?.setAttribute('d', buildPath(t, 15));
-      coatA.current?.setAttribute('d', buildPath(t, 15, -COAT));
-      coatB.current?.setAttribute('d', buildPath(t, 15, COAT));
+      main.current?.setAttribute('d', buildPath(t, 7));
+      coatA.current?.setAttribute('d', buildPath(t, 7, -COAT));
+      coatB.current?.setAttribute('d', buildPath(t, 7, COAT));
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import ExploreContent from '@/components/ExploreContent';
+import { buildPageMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
   params,
@@ -9,10 +10,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'explorePage' });
-  return {
+  return buildPageMetadata({
+    locale,
+    path: '/explore',
     title: t('eyebrow'),
     description: t('intro'),
-  };
+  });
 }
 
 export default async function ExplorePage({ params }: { params: Promise<{ locale: string }> }) {
